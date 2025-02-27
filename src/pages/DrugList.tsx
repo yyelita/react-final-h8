@@ -23,7 +23,7 @@ export default function DrugList() {
         })}
         {drugs.length === 0 && (
           <li className="text-center font w-full  col-span-full">
-            No product found
+            Sorry, no product found :(
           </li>
         )}
       </ul>

@@ -1,26 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router"; // ✅ Fix import
 import { z } from "zod";
 
-const validUser = {
-  name: "Admin",
-  email: "admin@mail.com",
-  password: "admin123",
-};
-
 const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("user"));
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user") || "{}")
+  );
   const [error, setError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const navigate = useNavigate();
 
   const login = (email: string, password: string) => {
     const schema = z.object({
-      email: z.string().email("Email salah"),
-      password: z.string().min(6, "Minimum password 6 karakter"),
+      email: z.string().email("Invalid email"),
+      password: z.string().min(6, "Password must be at least 6 characters"),
     });
 
     const result = schema.safeParse({ email, password });
@@ -28,27 +24,38 @@ const useAuth = () => {
     if (!result.success) {
       const formattedError = Object.fromEntries(
         Object.entries(result.error.flatten().fieldErrors).map(
-          ([key, value]) => {
-            return [key, value?.[0] || ""];
-          }
+          ([key, value]) => [key, value?.[0] || ""]
         )
       );
-
       setErrors(formattedError);
       return;
     }
 
     setErrors({});
 
-    if (email !== validUser.email || password !== validUser.password) {
-      setError("Invalid username or password");
+    // ✅ Check `localStorage` for users
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const foundUser = users.find(
+      (u: { email: string; password: string }) =>
+        u.email === email && u.password === password
+    );
+
+    if (!foundUser) {
+      setError("Invalid email or password");
       return;
     }
 
     setIsLoggedIn(true);
-    setUser(validUser);
-    localStorage.setItem("user", JSON.stringify(validUser));
+    setUser(foundUser);
+    localStorage.setItem("user", JSON.stringify(foundUser));
     navigate("/", { replace: true });
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    setUser({});
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   return {
@@ -60,6 +67,7 @@ const useAuth = () => {
     errors,
     setError,
     login,
+    logout,
     setIsLoggedIn,
     setEmail,
     setPassword,

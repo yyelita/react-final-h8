@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router"; // ✅ Fix import
+import { NavLink, useNavigate } from "react-router"; // ✅ Fix import
 
 interface RegisterData {
   name: string;
@@ -9,6 +9,7 @@ interface RegisterData {
 }
 
 export default function Register() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,8 +18,25 @@ export default function Register() {
   } = useForm<RegisterData>(); // ✅ No more Zo
 
   function registerUser(data: RegisterData) {
-    console.log(data);
-    alert(JSON.stringify(data));
+    // ✅ Remove confirmPassword before saving
+    const { confirmPassword, ...userData } = data;
+
+    // ✅ Check if user already exists
+    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const userExists = existingUsers.some(
+      (user: RegisterData) => user.email === data.email
+    );
+
+    if (userExists) {
+      alert("Email is already registered!");
+      return;
+    }
+
+    // ✅ Save to local storage
+    localStorage.setItem("users", JSON.stringify([...existingUsers, userData]));
+
+    alert("Registration successful!");
+    navigate("/login"); // ✅ Redirect to login page
   }
 
   return (
@@ -27,16 +45,17 @@ export default function Register() {
         onSubmit={handleSubmit(registerUser)}
         className="flex flex-col gap-4 bg-white p-8 w-[350px] rounded-lg shadow-lg"
       >
-        <h1 className="text-3xl">Register</h1>
+        <h1 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Register
+        </h1>
 
         {/* Name Field */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1  text-sm font-medium text-gray-700">
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
-            placeholder="Name"
-            className="border border-slate-200 py-1 px-3 rounded-md"
+            className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             {...register("name", {
               required: "Name is required",
               minLength: {
@@ -51,13 +70,12 @@ export default function Register() {
         </div>
 
         {/* Email Field */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 text-sm font-medium text-gray-700">
           <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
-            placeholder="Email"
-            className="border border-slate-200 py-1 px-3 rounded-md"
+            className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             {...register("email", {
               required: "Email is required",
               pattern: {
@@ -72,13 +90,12 @@ export default function Register() {
         </div>
 
         {/* Password Field */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 text-sm font-medium text-gray-700">
           <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
-            placeholder="Password"
-            className="border border-slate-200 py-1 px-3 rounded-md"
+            className="appearance-none flex w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             {...register("password", {
               required: "Password is required",
               minLength: {
@@ -93,13 +110,12 @@ export default function Register() {
         </div>
 
         {/* Confirm Password Field */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1  text-sm font-medium text-gray-700">
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input
             type="password"
             id="confirmPassword"
-            placeholder="Confirm Password"
-            className="border border-slate-200 py-1 px-3 rounded-md"
+            className="appearance-none flex w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             {...register("confirmPassword", {
               required: "Please confirm your password",
               validate: (value) =>
@@ -114,15 +130,15 @@ export default function Register() {
         </div>
 
         {/* Register Button */}
-        <button className="mt-4 border border-blue-500 text-blue-500 py-1 px-3 rounded-md cursor-pointer">
+        <button className="mt-4 py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-800">
           Register
         </button>
 
         {/* Login Link */}
-        <div>
-          <p className="mt-4 text-center">
+        <div className="text-sm text-center">
+          <p className="font-medium">
             Have an account?{" "}
-            <NavLink to="/login" className="text-blue-500">
+            <NavLink to="/login" className="text-blue-500 underline">
               Login
             </NavLink>
           </p>

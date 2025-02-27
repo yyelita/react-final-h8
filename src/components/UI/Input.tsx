@@ -37,6 +37,7 @@ export default function Input({
           py-1
           px-3
           rounded-md
+          bg-slate-200
           hover:border-slate-300
           hover:bg-slate-50
           focus:border-slate-300

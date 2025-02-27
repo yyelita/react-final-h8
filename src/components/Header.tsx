@@ -14,9 +14,13 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-purple-950  h-12 text-xl px-7 py-2 flex justify-between">
+    <header className="bg-emerald-700  h-12 text-xl px-7 py-2 flex justify-between">
       <h1 className="text-white items-start font-bold">Easy Pharmacy</h1>
-      <Input onChange={(value: string) => setKeyword(value)} />
+      <Input
+        onChange={(value: string) => setKeyword(value)}
+        className="appearance-none flex w-1/2 sm:text-sm px-10"
+        placeholder="search product.."
+      />
       <div>
         <button className="border border-white rounded py-1 px-3 cursor-pointer text-white mx-1.5">
           <div className="text-sm text-center">Cart</div>
