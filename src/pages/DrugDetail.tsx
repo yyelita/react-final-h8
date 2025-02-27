@@ -13,7 +13,7 @@ export default function DrugDetail() {
     return <p className="text-black text-center">Drug not found</p>;
   }
 
-  const currentStock = stock[drug.id] ?? 10; // ✅ Uses stock from CartProvider
+  const currentStock = stock[drug.id] ?? 10; //  Uses stock from CartProvider
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
@@ -39,7 +39,7 @@ export default function DrugDetail() {
             {drug.price}
           </div>
           <p className="text-black mb-4">Stock: {currentStock}</p>{" "}
-          {/* ✅ Stock now persists */}
+          {/* Stock persists */}
           <button
             onClick={() => addToCart(drug.id)}
             className={`bg-emerald-700 rounded-full text-white py-2 px-6 transition-transform transform hover:scale-105 ${

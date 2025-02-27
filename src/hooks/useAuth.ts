@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router"; // ✅ Fixed import
+import { useNavigate } from "react-router";
 import { z } from "zod";
 
-// ✅ Define login validation schema
 const loginSchema = z.object({
   email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -29,12 +28,12 @@ const useAuth = () => {
         )
       );
       setErrors(formattedErrors);
-      return false; // ✅ Prevent login if validation fails
+      return false; // Prevent login if validation fails
     }
 
-    setErrors({}); // ✅ Clear errors
+    setErrors({});
 
-    // ✅ Check LocalStorage for registered users
+    // Check LocalStorage for registered users
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
     if (!Array.isArray(users)) {
@@ -52,7 +51,7 @@ const useAuth = () => {
       return false;
     }
 
-    // ✅ Set login state & save user session
+    //  Set login state & save user session
     setIsLoggedIn(true);
     setUser(foundUser);
     localStorage.setItem("user", JSON.stringify(foundUser));

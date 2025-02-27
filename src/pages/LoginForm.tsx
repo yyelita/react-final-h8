@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router"; // ✅ Fixed import
+import { NavLink, useNavigate } from "react-router";
 import useAuth from "../hooks/useAuth";
 
 export function LoginPage() {
@@ -10,10 +10,10 @@ export function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const success = login(email, password); // ✅ Call login function
+    const success = login(email, password);
 
     if (success) {
-      navigate("/home", { replace: true }); // ✅ Redirect to home page after login
+      navigate("/home", { replace: true });
     }
   };
 
