@@ -9,27 +9,44 @@ export default function Header() {
 
   function logout(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     e.preventDefault();
-    // localStorage.removeItem("user");
+    localStorage.removeItem("user");
     navigate("/login");
+  }
+
+  function handleCart(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+    navigate("/cart");
+  }
+
+  function home(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
   }
 
   return (
     <header className="bg-emerald-700  h-12 text-xl px-7 py-2 flex justify-between">
-      <h1 className="text-white items-start font-bold">Easy Pharmacy</h1>
+      <h1
+        onClick={() => navigate("/")}
+        className="text-white items-start font-arial font-bold cursor-pointer"
+      >
+        Easy Pharmacy
+      </h1>
       <Input
         onChange={(value: string) => setKeyword(value)}
-        className="appearance-none flex w-1/2 sm:text-sm px-10"
+        className="appearance-none flex w-1/2 sm:text-sm px-3"
         placeholder="search product.."
       />
       <div>
-        <button className="border border-white rounded py-1 px-3 cursor-pointer text-white mx-1.5">
+        <button
+          onClick={handleCart}
+          className="border border-white rounded py-1 px-3 cursor-pointer text-white mx-1.5"
+        >
           <div className="text-sm text-center">Cart</div>
         </button>
         <button
           onClick={logout}
-          className="border border-white rounded py-1 px-3 cursor-pointer text-white"
+          className="border bg-emerald-900 border-white rounded py-1 px-3 cursor-pointer text-white"
         >
-          <div className="text-sm text-center">Log Out</div>
+          <div className="text-sm font-bold text-center">Log Out</div>
         </button>
       </div>
     </header>

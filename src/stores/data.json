@@ -6,7 +6,7 @@
     "description": "Obat ini bisa dikonsumsi oleh orang dewasa maupun anak-anak. Namun, jika Anda memiliki kondisi hipersensitif pada paracetamol, sebaiknya hindari penggunaan obat ini.",
     "image": "https://d3bbrrd0qs69m4.cloudfront.net/images/product/0104k0186.jpg",
     "rate": 3,
-    "des": "Demam"
+    "des": "Obat Penurun Demam"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "Obat ini mengandung paracetamol sehingga dapat menurunkan demam, serta meredakan nyeri ringan seperti sakit kepala dan sakit gigi.",
     "image": "https://d2qjkwm11akmwu.cloudfront.net/products/1876-1665761115.jpeg",
     "rate": 5,
-    "des": "Demam"
+    "des": "Obat Penurun Demam"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "description": "Obat ini dapat digunakan untuk menurunkan demam yang disertai dengan gejala flu, demam setelah vaksinasi, serta meredakan sakit kepala, dan nyeri otot.",
     "image": "https://d3bbrrd0qs69m4.cloudfront.net/images/product/apotek_online_k24klik_20160721040527291_45-Panadol-Paracetamol.jpg",
     "rate": 4,
-    "des": "Demam"
+    "des": "Obat Penurun Demam"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "description": "Obat diare Imodium diperkaya dengan kandungan Loperamide HCL yang bekerja dengan cara memperlambat kinerja usus, sehingga pencernaan makanan dapat bekerja lebih lama agar feses tidak cair.",
     "image": "https://storage.googleapis.com/rxstorage/Product/Photos/farmaku_imodium-2-mg-tablet-01.jpg",
     "rate": 4,
-    "des": "Diare"
+    "des": "Obat Diare"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "description": "Entrostop mengobati diare dengan cara menyerap bakteri atau racun penyebab diare dengan mengeluarkan feses, lalu menghentikan diare.",
     "image": "https://d2qjkwm11akmwu.cloudfront.net/products/25186_11-1-2022_17-9-28-1665843978.webp",
     "rate": 2,
-    "des": "Diare"
+    "des": "Obat Diare"
   },
   {
     "id": 6,
@@ -67,7 +67,7 @@
     "name": "Imboost Kids",
     "price": "Rp. 32.000",
     "description": "Terbuat dari bahan herbal echinacea dan zinc picolenat, vitamin ini ampuh jaga sistem kekebalan tubuh, meredakan infeksi, serta mempercepat penyembuhan ketika sakit.",
-    "image": "https://www.gogobli.com/produk/curcuma_plus/569583_curcumaplus.jpg",
+    "image": "https://res-1.cloudinary.com/dk0z4ums3/image/upload/c_scale,h_500,w_500/v1/production/pharmacy/products/1659929473_5fb37d0541ab59059e868680",
     "rate": 5,
     "des": "Vitamin Anak"
   },
