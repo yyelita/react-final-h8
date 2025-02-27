@@ -1,0 +1,33 @@
+import { useNavigate } from "react-router";
+
+import useDrug from "../hooks/useDrug";
+import Input from "./UI/Input";
+
+export default function Header() {
+  const navigate = useNavigate();
+  const { setKeyword } = useDrug();
+
+  function logout(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    e.preventDefault();
+    // localStorage.removeItem("user");
+    navigate("/login");
+  }
+
+  return (
+    <header className="bg-purple-950  h-12 text-xl px-7 py-2 flex justify-between">
+      <h1 className="text-white items-start font-bold">Easy Pharmacy</h1>
+      <Input onChange={(value: string) => setKeyword(value)} />
+      <div>
+        <button className="border border-white rounded py-1 px-3 cursor-pointer text-white mx-1.5">
+          <div className="text-sm text-center">Cart</div>
+        </button>
+        <button
+          onClick={logout}
+          className="border border-white rounded py-1 px-3 cursor-pointer text-white"
+        >
+          <div className="text-sm text-center">Log Out</div>
+        </button>
+      </div>
+    </header>
+  );
+}

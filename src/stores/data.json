@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Sumagesic Strip",
+    "price": "Rp. 12.000",
+    "description": "Obat ini bisa dikonsumsi oleh orang dewasa maupun anak-anak. Namun, jika Anda memiliki kondisi hipersensitif pada paracetamol, sebaiknya hindari penggunaan obat ini.",
+    "image": "https://d3bbrrd0qs69m4.cloudfront.net/images/product/0104k0186.jpg",
+    "rate": 3,
+    "des": "Demam"
+  },
+  {
+    "id": 2,
+    "name": "Sanmol Paracetamol",
+    "price": "Rp. 2.000",
+    "description": "Obat ini mengandung paracetamol sehingga dapat menurunkan demam, serta meredakan nyeri ringan seperti sakit kepala dan sakit gigi.",
+    "image": "https://d2qjkwm11akmwu.cloudfront.net/products/1876-1665761115.jpeg",
+    "rate": 5,
+    "des": "Demam"
+  },
+  {
+    "id": 3,
+    "name": "Panadol Paracetamol",
+    "price": "Rp. 13.000",
+    "description": "Obat ini dapat digunakan untuk menurunkan demam yang disertai dengan gejala flu, demam setelah vaksinasi, serta meredakan sakit kepala, dan nyeri otot.",
+    "image": "https://d3bbrrd0qs69m4.cloudfront.net/images/product/apotek_online_k24klik_20160721040527291_45-Panadol-Paracetamol.jpg",
+    "rate": 4,
+    "des": "Demam"
+  },
+  {
+    "id": 4,
+    "name": "Imodium Loperamide HCL",
+    "price": "Rp. 29.000",
+    "description": "Obat diare Imodium diperkaya dengan kandungan Loperamide HCL yang bekerja dengan cara memperlambat kinerja usus, sehingga pencernaan makanan dapat bekerja lebih lama agar feses tidak cair.",
+    "image": "https://storage.googleapis.com/rxstorage/Product/Photos/farmaku_imodium-2-mg-tablet-01.jpg",
+    "rate": 4,
+    "des": "Diare"
+  },
+  {
+    "id": 5,
+    "name": "Neo Entrostop Strip",
+    "price": "Rp. 19.000",
+    "description": "Entrostop mengobati diare dengan cara menyerap bakteri atau racun penyebab diare dengan mengeluarkan feses, lalu menghentikan diare.",
+    "image": "https://d2qjkwm11akmwu.cloudfront.net/products/25186_11-1-2022_17-9-28-1665843978.webp",
+    "rate": 2,
+    "des": "Diare"
+  },
+  {
+    "id": 6,
+    "name": "Stimuno Syrup",
+    "price": "Rp. 12.000",
+    "description": "Stimuno Syrup yang berfungsi untuk menjaga anak agar tidak mudah terkena penyakit.",
+    "image": "https://d2qjkwm11akmwu.cloudfront.net/products/707598_27-5-2022_17-14-32-1665780069.png",
+    "rate": 4,
+    "des": "Vitamin Anak"
+  },
+  {
+    "id": 7,
+    "name": "Curcuma Plus",
+    "price": "Rp. 13.000",
+    "description": "Curcuma Plus merupakan vitamin yang terbuat dari temulawak yang cocok dikonsumsi oleh anak yang sulit makan.",
+    "image": "https://www.gogobli.com/produk/curcuma_plus/569583_curcumaplus.jpg",
+    "rate": 5,
+    "des": "Vitamin Anak"
+  },
+  {
+    "id": 8,
+    "name": "Imboost Kids",
+    "price": "Rp. 32.000",
+    "description": "Terbuat dari bahan herbal echinacea dan zinc picolenat, vitamin ini ampuh jaga sistem kekebalan tubuh, meredakan infeksi, serta mempercepat penyembuhan ketika sakit.",
+    "image": "https://www.gogobli.com/produk/curcuma_plus/569583_curcumaplus.jpg",
+    "rate": 5,
+    "des": "Vitamin Anak"
+  },
+  {
+    "id": 9,
+    "name": "Scott's Emulsion",
+    "price": "Rp. 32.000",
+    "description": "Memiliki kandungan hati ikan kod, vitamin A, D, omega-3, dan kalsium, vitamin ini mampu menjaga pertumbuhan serta kesehatan si kecil.",
+    "image": "https://d3bbrrd0qs69m4.cloudfront.net/images/product/apotek_online_k24klik_20201019032808359225_scotts-200-ml.jpg",
+    "rate": 2,
+    "des": "Vitamin Anak"
+  },
+  {
+    "name": "Seven Seas Becombion Syrup",
+    "price": "Rp.35.000",
+    "description": "Multivitamin berbentuk sirup ini mampu memaksimalkan tumbuh kembang anak dan cocok dikonsumsi oleh anak berusia di atas 1 tahun.",
+    "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//891/seven-seas_seven-seas-becombion-syrup--110-ml-_full02.jpg",
+    "rate": 3,
+    "des": "Multivitamin anak",
+    "id": 10
+  }
+]
