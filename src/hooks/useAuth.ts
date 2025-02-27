@@ -1,6 +1,12 @@
 import { useState } from "react";
-import { useNavigate } from "react-router"; // ✅ Fix import
+import { useNavigate } from "react-router"; // ✅ Fixed import
 import { z } from "zod";
+
+// ✅ Define login validation schema
+const loginSchema = z.object({
+  email: z.string().email("Invalid email"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
+});
 
 const useAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("user"));
@@ -13,28 +19,29 @@ const useAuth = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const navigate = useNavigate();
 
-  const login = (email: string, password: string) => {
-    const schema = z.object({
-      email: z.string().email("Invalid email"),
-      password: z.string().min(6, "Password must be at least 6 characters"),
-    });
-
-    const result = schema.safeParse({ email, password });
+  const login = (email: string, password: string): boolean => {
+    const result = loginSchema.safeParse({ email, password });
 
     if (!result.success) {
-      const formattedError = Object.fromEntries(
+      const formattedErrors = Object.fromEntries(
         Object.entries(result.error.flatten().fieldErrors).map(
           ([key, value]) => [key, value?.[0] || ""]
         )
       );
-      setErrors(formattedError);
-      return;
+      setErrors(formattedErrors);
+      return false; // ✅ Prevent login if validation fails
     }
 
-    setErrors({});
+    setErrors({}); // ✅ Clear errors
 
-    // Check `localStorage` for users
+    // ✅ Check LocalStorage for registered users
     const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    if (!Array.isArray(users)) {
+      setError("No registered users found");
+      return false;
+    }
+
     const foundUser = users.find(
       (u: { email: string; password: string }) =>
         u.email === email && u.password === password
@@ -42,13 +49,14 @@ const useAuth = () => {
 
     if (!foundUser) {
       setError("Invalid email or password");
-      return;
+      return false;
     }
 
+    // ✅ Set login state & save user session
     setIsLoggedIn(true);
     setUser(foundUser);
     localStorage.setItem("user", JSON.stringify(foundUser));
-    navigate("/", { replace: true });
+    return true; // ✅ Return true when login is successful
   };
 
   const logout = () => {

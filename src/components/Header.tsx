@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className="bg-emerald-700  h-12 text-xl px-7 py-2 flex justify-between">
       <h1
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
         className="text-white items-start font-arial font-bold cursor-pointer"
       >
         Easy Pharmacy
