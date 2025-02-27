@@ -18,10 +18,6 @@ export default function Header() {
     navigate("/cart");
   }
 
-  function home(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    e.preventDefault();
-  }
-
   return (
     <header className="bg-emerald-700  h-12 text-xl px-7 py-2 flex justify-between">
       <h1
