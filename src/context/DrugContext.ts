@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { IDrug } from "../components/DrugItem"; // Ensure you have an IDrug type
+import { IDrug } from "../components/DrugItem";
 
 // Define the shape of the context
 interface IDrugContext {

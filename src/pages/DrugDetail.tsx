@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router";
-import useCart from "../hooks/useCart"; // ✅ Import the custom hook
+import useCart from "../hooks/useCart";
 import data from "../stores/data.json";
 import Button from "../components/UI/Button";
 

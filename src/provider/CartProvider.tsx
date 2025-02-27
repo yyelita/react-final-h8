@@ -20,7 +20,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     const storedCart = JSON.parse(localStorage.getItem("cart") || "{}");
     const storedStock = JSON.parse(localStorage.getItem("stock") || "{}");
 
-    // ✅ Set default stock values only if missing
+    //  Set default stock values only if missing
     const defaultStock = data.reduce((acc, item) => {
       acc[item.id] = storedStock[item.id] ?? 10; // Default stock = 10
       return acc;
@@ -28,7 +28,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
     setCart(storedCart);
     setStock(defaultStock);
-  }, []); // ✅ Runs only once on app load
+  }, []); //  Runs only once on app load
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

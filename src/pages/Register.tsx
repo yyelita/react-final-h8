@@ -15,13 +15,13 @@ export default function Register() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<RegisterData>(); // ✅ No more Zo
+  } = useForm<RegisterData>();
 
   function registerUser(data: RegisterData) {
-    // ✅ Remove confirmPassword before saving
+    //  Remove confirmPassword before saving
     const { confirmPassword, ...userData } = data;
 
-    // ✅ Check if user already exists
+    //  Check if user already exists
     const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
     const userExists = existingUsers.some(
       (user: RegisterData) => user.email === data.email
@@ -32,11 +32,10 @@ export default function Register() {
       return;
     }
 
-    // ✅ Save to local storage
     localStorage.setItem("users", JSON.stringify([...existingUsers, userData]));
 
     alert("Registration successful!");
-    navigate("/login"); // ✅ Redirect to login page
+    navigate("/login");
   }
 
   return (

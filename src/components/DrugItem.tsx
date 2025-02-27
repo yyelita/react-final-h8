@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
-import useCart from "../hooks/useCart"; // ✅ Use custom hook
-import { memo } from "react"; // ✅ Import React.memo
+import useCart from "../hooks/useCart";
+import { memo } from "react";
 
 export interface IDrug {
   id: number;
@@ -15,10 +15,10 @@ export interface IDrug {
 function Drug({ drug }: { drug: IDrug }) {
   const navigate = useNavigate();
   const { stock, addToCart } = useCart();
-  const currentStock = stock[drug.id] ?? 10; // ✅ Prevents NaN
+  const currentStock = stock[drug.id] ?? 10; // Prevents NaN
 
   function handleClick(event: React.MouseEvent) {
-    event.preventDefault(); // ✅ Prevents unnecessary re-render
+    event.preventDefault();
     navigate(`/drugs/${drug.id}`);
   }
 
@@ -54,4 +54,4 @@ function Drug({ drug }: { drug: IDrug }) {
   );
 }
 
-export default memo(Drug); // ✅ Prevents unnecessary re-renders when clicking Details
+export default memo(Drug);

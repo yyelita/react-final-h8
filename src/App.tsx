@@ -6,15 +6,13 @@ import DrugDetail from "./pages/DrugDetail";
 import Register from "./pages/Register";
 import { LoginPage } from "./pages/LoginForm";
 import Cart from "./pages/Cart";
-import { CartProvider } from "./provider/CartProvider"; // ✅ Import CartProvider
-
+import { CartProvider } from "./provider/CartProvider";
 export default function App() {
   return (
     <BrowserRouter>
       <DrugProvider>
         <CartProvider>
           {" "}
-          {/* ✅ Wrap all routes inside CartProvider */}
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route index element={<DrugList />} />

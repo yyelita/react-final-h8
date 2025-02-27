@@ -33,7 +33,7 @@ const useAuth = () => {
 
     setErrors({});
 
-    // ✅ Check `localStorage` for users
+    // Check `localStorage` for users
     const users = JSON.parse(localStorage.getItem("users") || "[]");
     const foundUser = users.find(
       (u: { email: string; password: string }) =>
