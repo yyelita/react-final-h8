@@ -1,5 +1,5 @@
-import useCart from "../hooks/useCart"; // ✅ Fix import path
-import { NavLink } from "react-router"; // ✅ Fix import path
+import useCart from "../hooks/useCart";
+import { NavLink } from "react-router";
 import data from "../stores/data.json";
 
 export default function Cart() {
@@ -18,7 +18,7 @@ export default function Cart() {
           />
           <p className="font-medium mt-4">
             Your cart is empty, let's{" "}
-            <NavLink to="/" className="text-emerald-500 underline">
+            <NavLink to="/home" className="text-emerald-500 underline">
               shop!
             </NavLink>
           </p>
@@ -28,7 +28,7 @@ export default function Cart() {
           {Object.entries(cart).map(([id, quantity]) => {
             const product = data.find((p) => p.id === Number(id));
 
-            if (!product) return null; // ✅ Prevents errors when product is missing
+            if (!product) return null; //  Prevents errors when product is missing
 
             return (
               <li
